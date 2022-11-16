@@ -1,0 +1,75 @@
+<h1>Quiz</h1>
+<!-- {{saveCont[0].capital}} -->
+<!-- <table>
+  <tr>
+    <th>Country</th>
+    <th>Capital</th>
+  </tr>
+  <tr *ngFor="let data of saveCont">
+
+    <td> {{data.name}}</td>
+    <td>{{data.capital}}</td>
+  </tr>
+</table> -->
+<div *ngIf="saveCont " class="quescard">
+<form *ngFor="let item of saveCont;let indexOfelement=index;" >
+  <h1>What is the capital of {{item.name}}?</h1><br>
+    <li (click)="check(item.capital,saveCont[0],indexOfelement)">{{item.capital}}</li><br>  
+    
+    <!-- <li (click)="check(saveCont[0].capital,saveCont[0],indexOfelement)">{{item.capital}}</li><br>   -->
+  <li (click)="check(saveCont[1].capital,saveCont[0],indexOfelement)">{{saveCont[1].capital}}</li><br>
+  <li (click)="check(saveCont[2].capital,saveCont[0],indexOfelement)">{{saveCont[2].capital}}</li><br>
+  <li (click)="check(saveCont[3].capital,saveCont[0],indexOfelement)">{{saveCont[3].capital}}</li><br>
+</form>
+
+</div>
+<hr>
+     
+<button (click)="res()">Submit</button>
+
+  <table border="1" *ngIf="saveCont " id="showdata" style="display:none">
+    <tr>
+    <td>Index</td> 
+    <td>Question</td>
+    <td>Answer</td>
+    <td>Response</td>
+    <td>check</td>
+  </tr>
+    <tr>
+      <td>1</td>
+      <td>{{saveCont[0].name}}</td>
+      <td>{{saveCont[0].capital}}</td>
+      <td>{{saveCont[0].Answered?saveCont[0].Answered:''}}</td>
+      <td>{{saveCont[0].Answered?(saveCont[0].Answered==saveCont[0].capital ? 'true':'false'):''}}</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>{{saveCont[1].name}}</td>
+      <td>{{saveCont[1].capital}}</td>
+      <td>{{saveCont[1].Answered?saveCont[1].Answered:''}}</td>
+      <td>{{saveCont[1].Answered?(saveCont[1].Answered==saveCont[1].capital ? 'true':'false'):''}}</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>{{saveCont[2].name}}</td>
+      <td>{{saveCont[2].capital}}</td>
+      <td>{{saveCont[2].Answered?saveCont[2].Answered:''}}</td>
+      <td>{{saveCont[2].Answered?(saveCont[2].Answered==saveCont[2].capital ? 'true':'false'):''}}</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>{{saveCont[3].name}}</td>
+      <td>{{saveCont[3].capital}}</td>
+      <td>{{saveCont[3].Answered?saveCont[3].Answered:''}}</td>
+      <td>{{saveCont[3].Answered?(saveCont[3].Answered==saveCont[3].capital ? 'true':'false'):''}}</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>{{saveCont[4].name}}</td>
+      <td>{{saveCont[4].capital}}</td>
+      <td>{{saveCont[4].Answered?saveCont[4].Answered:''}}</td>
+      <td>{{saveCont[4].Answered?(saveCont[4].Answered==saveCont[4].capital ? 'true':'false'):''}}</td>
+    </tr>
+  </table>
+
+<router-outlet></router-outlet>
